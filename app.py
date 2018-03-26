@@ -5,6 +5,7 @@
 # DONE: Check out the included file giphy_api_key.py and follow the instructions in TODOs there before proceeding to view functions.
 
 # TODO 364: All templates you need are provided and should not be edited. However, you will need to inspect the templates that exist in order to make sure you send them the right data!
+## HAD TO EDIT REGISTER.HTML DUE TO JINJA ERROR ##
 
 # Import statements
 import os
@@ -361,7 +362,7 @@ def create_collection():
         collections_list = form.gif_picks.data
         obj_list = [get_gif_by_id(int(id)) for id in collections_list]
         final_collection = get_or_create_collection(form.name.data,current_user,obj_list)
-        return redirect(url_for('collections'),collect=final_collection)
+        return redirect(url_for('collections',collections=final_collection))
     else:
         return render_template('create_collection.html',form=form)
 
